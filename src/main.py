@@ -35,10 +35,21 @@ def app():
         if len(order) > 0:
             text_order_button = st.button("Run text analysis", type="primary")
     
-    with tab2:
-        uploaded_audio_file = st.file_uploader("Upload an audio file", type=['mp3', 'wav', 'ogg'])
-        if uploaded_audio_file:
-            st.audio(uploaded_audio_file, format='audio/wav', start_time=0)
+    with tab2:    
+        uploaded_audio = st.file_uploader("Upload audio", type=['mp3', 'wav', 'ogg'])
+        recorded_audio = st.audio_input("Record", key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
+        audio_data = None
+
+        if uploaded_audio is not None:
+            st.write("Uploaded audio:")
+            st.audio(uploaded_audio, format='audio/wav')
+            audio_data = uploaded_audio
+            audio_order_button = st.button("Run audio analysis", type="primary")
+
+        elif recorded_audio is not None:
+            st.write("Recording:")
+            st.audio(recorded_audio, format='audio/wav')
+            audio_data = recorded_audio
             audio_order_button = st.button("Run audio analysis", type="primary")
 
     with tab3:
@@ -46,7 +57,7 @@ def app():
         if uploaded_image:
             image_bytes = uploaded_image.getvalue()
             image = Image.open(io.BytesIO(image_bytes))
-            st.image(image, width=400)
+            st.image(image)
             image_order_button = st.button("Run image analysis", type="primary")        
     
     st.markdown("<br>", unsafe_allow_html=True)
@@ -56,7 +67,7 @@ def app():
 
         if audio_order_button:
             with st.spinner(f"Transcribing audio... \n\n"):
-                transcript = audio_transcription(uploaded_audio_file)
+                transcript = audio_transcription(audio_data)
                 if transcript:
                     st.markdown(f"<h4 style='text-align: center;'>Transcript</h4>", unsafe_allow_html=True)
                     st.markdown(transcript)
