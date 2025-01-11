@@ -43,7 +43,9 @@ def llm_analysis(text_input: str) -> Dict[str, Any]:
                 {"role": "system", "content": get_system_prompt()},
                 {"role": "user", "content": get_user_prompt(text_input)}
             ],
-            response_format=InputAnalysisSchema
+            response_format=InputAnalysisSchema,
+            temperature=0,
+            seed=42
         )
     except Exception as e:
         print(f"Error: {e}")
@@ -105,11 +107,10 @@ def image_to_text(uploaded_image):
                     ],
                 }
             ],
+            temperature=0,
+            seed=42
         )
 
-        if response.status_code == 200:
-            return response.json()['choices'][0]['message']['content']
-        else:
-            raise Exception(f"Failed to extract text from image with status code {response.status_code}")
+        return response.choices[0].message.content
     except Exception as e:
-        raise Exception(f"Failed to read image: {e}")
+        raise Exception(f"Failed to extract text from image: {e}")

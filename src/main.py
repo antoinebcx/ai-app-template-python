@@ -67,7 +67,7 @@ def app():
             with st.spinner(f"Extracting text from image... \n\n"):
                 extraction = image_to_text(uploaded_image)
                 if extraction:
-                    st.markdown(f"<h4 style='text-align: center;'>Extraction</h4>", unsafe_allow_html=True)
+                    st.markdown(f"<h4 style='text-align: center;'>Extracted text from image</h4>", unsafe_allow_html=True)
                     st.markdown(extraction)
                     st.markdown("<br>", unsafe_allow_html=True)
                     order = extraction
