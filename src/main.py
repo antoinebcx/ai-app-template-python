@@ -7,13 +7,15 @@ st.set_page_config(page_title='AI app template')
 
 
 def app():
-    """Main function that runs the Streamlit app."""
+    """
+    Main function that runs the Streamlit app.
+    """
     st.markdown(
         "<h2 style='text-align: center;'>AI app template</h2>",
         unsafe_allow_html=True,
     )
     st.markdown(
-        "<p style='text-align: center;'>This app demonstrates how to use AI services to analyze text, audio, and images. .</p>",
+        "<p style='text-align: center;'>This app demonstrates how to use AI services to analyze text, audio, and images.</p>",
         unsafe_allow_html=True
     )
 
