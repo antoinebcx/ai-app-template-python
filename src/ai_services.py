@@ -18,7 +18,6 @@ def llm_analysis(text_input: str) -> Dict[str, Any]:
     """
     Using structured outputs, perform a structured analysis of the input with GPT.
     """
-
     try:
         completion = client.beta.chat.completions.parse(
             model=model_gpt,
