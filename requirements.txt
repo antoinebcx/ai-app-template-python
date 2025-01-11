@@ -3,5 +3,4 @@ pandas
 Pillow
 python-dotenv
 openai
-requests
 pydantic

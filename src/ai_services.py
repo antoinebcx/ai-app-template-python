@@ -1,7 +1,6 @@
 import os
 import base64
 from typing import Dict, Any
-import requests
 from dotenv import load_dotenv
 from openai import OpenAI
 from schemas import InputAnalysisSchema
@@ -89,32 +88,25 @@ def image_to_text(uploaded_image):
     """
     try:
         base64_image = encode_image(uploaded_image)
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {openai_api_key}"
-        }
-        payload = {
-            "model": f"{model_vision}",
-            "messages": [
+        response = client.chat.completions.create(
+            model=model_vision,
+            messages=[
                 {
                     "role": "user",
                     "content": [
                         {
                             "type": "text",
-                            "text": "Please return all the text that is on this image."
+                            "text": "Please return all the text from this image, as is.",
                         },
                         {
                             "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/jpeg;base64,{base64_image}"
-                            }
-                        }
-                    ]
+                            "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"},
+                        },
+                    ],
                 }
             ],
-            "max_tokens": 2000
-        }
-        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+        )
+
         if response.status_code == 200:
             return response.json()['choices'][0]['message']['content']
         else:
