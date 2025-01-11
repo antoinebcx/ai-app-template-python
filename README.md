@@ -12,6 +12,10 @@ OPENAI_API_KEY = [your OpenAI API key]
 
 Then, you can open a terminal window, go to the project folder and run:
 ```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+streamlit run main.py
 ```
 
 If you just want to have a look at the code, you will find in `main.py` the code related to the Streamlit app, and in `ai_services.py` the utility and AI functions.
