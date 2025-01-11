@@ -5,7 +5,7 @@ This project is a simple template of an AI app, built with Python and Streamlit.
 
 ## To use the app
 
-To use the tool, you need to create a .env at the root of the project with:
+To use the app, you need to create a `.env` file at the root of the project with:
 ```
 OPENAI_API_KEY = [your OpenAI API key]
 ```
