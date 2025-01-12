@@ -1,6 +1,8 @@
 # AI app template
 
-This project is a simple template of an AI app, built with Python and Streamlit. It demonstrates how to use AI services to analyze text, audio, and images. 
+This project is a template of an AI app, built with Python and Streamlit. It demonstrates how to use AI services to analyze text, audio, and images.
+
+The project shows how to use structured outputs with a reasoning field, how to effectively structure a prompt with html tags, and how to use few-shot examples (in-context learning).
 
 
 ## To use the app
