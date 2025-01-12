@@ -21,4 +21,4 @@ pip install -r requirements.txt
 streamlit run src/main.py
 ```
 
-If you want to have a look at the code, you will find in `src/main.py` the code related to the Streamlit app, and in `src/ai_services.py` the utility and AI functions.
+All the code is in the `/src` directory.
