@@ -15,7 +15,7 @@ def app():
         unsafe_allow_html=True,
     )
     st.markdown(
-        "<p style='text-align: center;'>This app demonstrates how to use AI services to analyze text, audio, and images.</p>",
+        "<p style='text-align: center;'>This app demonstrates how to use AI services to extract information in a structured way from text, audio, and images.</p>",
         unsafe_allow_html=True
     )
 
@@ -63,8 +63,6 @@ def app():
     st.markdown("<br>", unsafe_allow_html=True)
 
     if text_order_button or audio_order_button or image_order_button:
-        st.divider()
-
         if audio_order_button:
             with st.spinner(f"Transcribing audio... \n\n"):
                 transcript = audio_transcription(audio_data)
