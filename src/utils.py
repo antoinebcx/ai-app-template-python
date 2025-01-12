@@ -17,7 +17,7 @@ def get_user_prompt(text_input: str) -> str:
     return USER_PROMPT.format(
         FEW_SHOT_EXAMPLE=FEW_SHOT_EXAMPLE,
         text_input=text_input
-        )
+    )
 
 
 def encode_image(uploaded_image) -> str:
