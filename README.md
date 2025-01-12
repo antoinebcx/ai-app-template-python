@@ -6,6 +6,8 @@ The project shows how to use structured outputs with a reasoning field, how to e
 
 The app supports text inputs, audio transcription and text extraction from images.
 
+<img width="1320" alt="image" src="https://github.com/user-attachments/assets/82067fb0-2bc4-4625-a3e9-551ebbf1544f" />
+
 ## To use the app
 
 To use the app, you need to create a `.env` file at the root of the project with:
@@ -20,5 +22,3 @@ source venv/bin/activate
 pip install -r requirements.txt
 streamlit run src/main.py
 ```
-
-All the code is in the `/src` directory.
