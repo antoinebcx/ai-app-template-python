@@ -22,3 +22,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 streamlit run src/main.py
 ```
+
+
+## The code
+
+All the code is in the `/src` directory.
+
+It contains:
+- UI and orchestration in `main.py`
+- AI services (LLM, audio transcription and text extraction from image) in `ai_services.py`
+- Utilities (get the prompts, encode images) in `utils.py`
+- System prompt and user prompt with XML tags in `prompts.py`
+- Few-shot example in `few_shot.py`
+- Structured outputs Pydantic schemas in `schemas.py`

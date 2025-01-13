@@ -15,7 +15,7 @@ def app():
         unsafe_allow_html=True,
     )
     st.markdown(
-        "<p style='text-align: center;'>This app demonstrates how to use AI services to extract information in a structured way from text, audio, and images.</p>",
+        "<p style='text-align: center;'>Extract information in a structured way from text, audio and images.</p>",
         unsafe_allow_html=True
     )
 
