@@ -2,6 +2,7 @@ import streamlit as st
 import io
 from PIL import Image
 from ai_services import llm_analysis, audio_transcription, image_to_text
+from function_calling import classify_input
 
 st.set_page_config(page_title='AI app template')
 
@@ -29,8 +30,8 @@ def app():
 
     with tab1:
         order = st.text_area(
-        "Enter a text input",
-        "",
+            "Enter a text input",
+            "",
         )
         if len(order) > 0:
             text_order_button = st.button("Run text analysis", type="primary")
@@ -84,9 +85,19 @@ def app():
         try:
             with st.spinner(f"Analyzing the input... \n\n"):
                 analysis_result = llm_analysis(order)
-                
                 st.markdown(f"<h4 style='text-align: center;'>Analysis</h4>", unsafe_allow_html=True)
-                st.write(st.write(analysis_result.model_dump()))
+                st.write(analysis_result.model_dump())
+
+            st.markdown("<br>", unsafe_allow_html=True)
+
+            with st.spinner(f"Classifying the input... \n\n"):
+                classification = classify_input(order)
+                st.markdown(f"<h4 style='text-align: center;'>Classification</h4>", unsafe_allow_html=True)
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.metric("Category", classification.get("category", "N/A"))
+                with col2:
+                    st.metric("Confidence", f"{classification.get('confidence', 0)*100:.1f}%")
 
         except Exception as e:
             st.write(

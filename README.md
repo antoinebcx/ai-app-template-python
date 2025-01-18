@@ -2,7 +2,7 @@
 
 This project is a template of an AI app, built with Python and Streamlit. It demonstrates how to use AI services to extract information in a structured way from text, audio, and images.
 
-The project shows how to use structured outputs with a reasoning field, how to effectively structure a prompt with XML tags, and how to use few-shot examples (in-context learning).
+The project shows how to effectively structure a prompt with XML tags and how to use structured outputs with a reasoning field, function calling (tool use) and few-shot examples (in-context learning).
 
 The app supports text inputs, audio transcription and text extraction from images.
 
@@ -35,3 +35,4 @@ It contains:
 - System prompt and user prompt with XML tags in `prompts.py`
 - Few-shot example in `few_shot.py`
 - Structured outputs Pydantic schemas in `schemas.py`
+- Function calling (tool use) in `function_calling.py`
